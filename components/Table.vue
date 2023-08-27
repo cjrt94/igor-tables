@@ -29,8 +29,11 @@ export default {
       difference: 0
     }
   },
-  created () {
-    this.getPayments()
+  async created () {
+    await this.getPayments()
+    setInterval(() => {
+      this.getPayments()
+    }, 7000)
   },
   methods: {
     /**
@@ -45,11 +48,13 @@ export default {
             'I-Open-Api-Token': 'MjhlMzMwOWMtNDJhZS00OTI0LTg3NTQtNjYwODRkNDU0YWZk'
           }
         })
+        this.total = 0
         responseOrders.data.forEach((doc) => {
           this.total += doc.payable_amount
         })
         // End
         // Get payments
+        this.payments = 0
         for await (let o of responseOrders.data) {
           const responsePayments = await this.$axios.$get(`https://api.idbi.pe/api/open/v1/orders/${o.uuid}/payments`, {
             headers: {
@@ -57,7 +62,6 @@ export default {
               'I-Open-Api-Token': 'MjhlMzMwOWMtNDJhZS00OTI0LTg3NTQtNjYwODRkNDU0YWZk'
             }
           })
-          console.log(responsePayments)
           responsePayments.data.forEach((doc) => {
             this.payments += doc.total_amount
           })
