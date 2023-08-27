@@ -1,17 +1,21 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Herodoto Gpt',
+    title: 'Igor',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'es'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Chant with any PDF or Gpt' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Aquí podrás revisar el estado de todas las mesas de tu restaurante.'
+      },
       { name: 'format-detection', content: 'telephone=no' },
-      { name: 'msapplication-TileColor', content: '#000000' },
-      { name: 'theme-color', content: '#000000' }
+      { name: 'msapplication-TileColor', content: '#F5A100' },
+      { name: 'theme-color', content: '#F5A100' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
@@ -25,7 +29,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;200;300;400;500;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;800;900&display=swap'
       }
     ],
     script: []
@@ -56,12 +60,13 @@ export default {
   ],
   firebase: {
     config: {
-      apiKey: "AIzaSyCK0O4N-qobB0Md-9adO8eHPsIhfPUFSQA",
-      authDomain: "herodoto-news.firebaseapp.com",
-      projectId: "herodoto-news",
-      storageBucket: "herodoto-news.appspot.com",
-      messagingSenderId: "155729452980",
-      appId: "1:155729452980:web:1a919763bf17828c9f5ce1"
+      apiKey: "AIzaSyDV_Aown3QdnFEQh4hxzJT5_A6IlOW1rEM",
+      authDomain: "igor-f5349.firebaseapp.com",
+      projectId: "igor-f5349",
+      storageBucket: "igor-f5349.appspot.com",
+      messagingSenderId: "596809366049",
+      appId: "1:596809366049:web:25625d48fa7311b1650160",
+      measurementId: "G-HNMNTPH06R"
     },
     services: {
       auth: {
