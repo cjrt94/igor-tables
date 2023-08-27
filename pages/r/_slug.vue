@@ -35,16 +35,17 @@ export default {
             id: doc.id,
             ...doc.data()
           }
+
+          // Get tables
+          const responseTable = await this.$axios.$get(`https://api.idbi.pe/api/open/v1/stores/${this.restaurant.posID}/tables`, {
+            headers: {
+              'I-Open-Api-Key': '949d8cde-ea96-40d2-b8ee-19bcf3f9face',
+              'I-Open-Api-Token': 'MjhlMzMwOWMtNDJhZS00OTI0LTg3NTQtNjYwODRkNDU0YWZk'
+            }
+          })
+          this.tables = responseTable.data
+          // End
         }
-        // End
-        // Get tables
-        const responseTable = await this.$axios.$get('https://api.idbi.pe/api/open/v1/stores/1181bd85-1f2a-4b96-9997-392debf56f05/tables', {
-          headers: {
-            'I-Open-Api-Key': '949d8cde-ea96-40d2-b8ee-19bcf3f9face',
-            'I-Open-Api-Token': 'MjhlMzMwOWMtNDJhZS00OTI0LTg3NTQtNjYwODRkNDU0YWZk'
-          }
-        })
-        this.tables = responseTable.data
         // End
       }
     } catch (e) {
