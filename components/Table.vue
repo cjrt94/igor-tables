@@ -1,5 +1,6 @@
 <template>
-  <div class="bg-gray-100 rounded-2xl py-4 px-8 relative" :class="{'!bg-black text-white' : (total-payments) >0}">
+  <div class="bg-gray-100 rounded-2xl py-4 px-8 relative transition-all duration-300"
+       :class="{'!bg-black text-white' : (total-payments) >0}">
     <span class="inline-block mb-4">{{ table.name }}</span>
     <div class="mb-4">
       <span class="block mb-2 text-sm">Total a pagar</span>
@@ -33,7 +34,7 @@ export default {
     await this.getPayments()
     setInterval(() => {
       this.getPayments()
-    }, 7000)
+    }, 10000)
   },
   methods: {
     /**

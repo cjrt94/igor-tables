@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container py-4">
+    <div v-show="isValid" class="container py-4">
       <!--Img-->
       <img class="h-24 w-24 object-cover rounded-full mx-auto mb-8" :src="restaurant.image" :alt="restaurant.name">
       <!--End-->
@@ -12,6 +12,9 @@
       </div>
       <!--End-->
     </div>
+    <!--Validate-->
+    <Validate @codeIsValid="isValid= true"></Validate>
+    <!--End-->
   </div>
 </template>
 
@@ -22,7 +25,8 @@ export default {
     return {
       restaurant: {},
       tables: [],
-      progress: false
+      progress: false,
+      isValid: false
     }
   },
   async mounted () {
