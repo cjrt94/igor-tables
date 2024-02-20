@@ -26,15 +26,18 @@ export default {
   data () {
     return {
       total: 0,
-      payments: 0,
-      difference: 0
+      payments: 0
     }
   },
   async created () {
-    await this.getPayments()
-    setInterval(() => {
+    this.total = this.table.total
+    this.payments = this.table.payments
+    // await this.getPayments()
+    /**
+     setInterval(() => {
       this.getPayments()
     }, 10000)
+     **/
   },
   methods: {
     /**

@@ -65,7 +65,7 @@ export default {
     return {
       code: '',
       loading: false,
-      isValid: false
+      isValid: true
     }
   },
   methods: {
@@ -83,6 +83,7 @@ export default {
           this.$emit('codeIsValid')
         }
       } catch (e) {
+        console.log(e)
         this.$toast.error('Error al validar', { duration: 3000 })
       } finally {
         this.loading = false

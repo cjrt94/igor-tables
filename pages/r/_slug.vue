@@ -26,7 +26,7 @@ export default {
       restaurant: {},
       tables: [],
       progress: false,
-      isValid: false
+      isValid: true
     }
   },
   async mounted () {
@@ -41,19 +41,40 @@ export default {
           }
 
           // Get tables
-          const responseTable = await this.$axios.$get(`https://api.idbi.pe/api/open/v1/stores/${this.restaurant.posID}/tables`, {
+          /**
+           const responseTable = await this.$axios.$get(`https://api.idbi.pe/api/open/v1/stores/${this.restaurant.posID}/tables`, {
             headers: {
               'I-Open-Api-Key': '949d8cde-ea96-40d2-b8ee-19bcf3f9face',
               'I-Open-Api-Token': 'MjhlMzMwOWMtNDJhZS00OTI0LTg3NTQtNjYwODRkNDU0YWZk'
             }
-          })
-          this.tables = responseTable.data
+          })**/
+
+          this.tables = [
+            {
+              name: 'Mesa 01',
+              total: 100,
+              payments: 10,
+
+            },
+            {
+              name: 'Mesa 02',
+              total: 100,
+              payments: 10,
+
+            },
+            {
+              name: 'Mesa 03',
+              total: 100,
+              payments: 100,
+
+            }
+          ]
           // End
         }
         // End
       }
     } catch (e) {
-      this.$toast.error('Error al cargar', { duration: 3000 })
+      this.$toast.error('cargar', { duration: 3000 })
     }
   },
   watch: {},
